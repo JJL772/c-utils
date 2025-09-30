@@ -1,7 +1,3 @@
 # c-utils
 
-Misc utilities for C and C++
-
-## pathtools.h
-
-
+Dumping place for random C/C++ utility routines

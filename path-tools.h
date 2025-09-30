@@ -1,4 +1,15 @@
-/* Path utilities */
+//-----------------------------------------------------------------------------------------
+// Copyright (C) 2025 Jeremy Lorelli
+//-----------------------------------------------------------------------------------------
+// Purpose: Simple path utils for C/C++
+//-----------------------------------------------------------------------------------------
+// This file is part of 'devGpioGeneric'. It is subject to the license terms in the
+// LICENSE file found in the top-level directory of this distribution.
+// No part of 'devGpioGeneric', including this file, may be copied, modified, propagated,
+// or otherwise distributed except according to the terms contained in the LICENSE file.
+//
+// SPDX-License-Identifier: BSD-3-Clause
+//-----------------------------------------------------------------------------------------
 #pragma once
 
 #include <stddef.h>

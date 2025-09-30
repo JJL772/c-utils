@@ -1,3 +1,15 @@
+//-----------------------------------------------------------------------------------------
+// Copyright (C) 2025 Jeremy Lorelli
+//-----------------------------------------------------------------------------------------
+// Purpose: Simple macro tools for C
+//-----------------------------------------------------------------------------------------
+// This file is part of 'devGpioGeneric'. It is subject to the license terms in the
+// LICENSE file found in the top-level directory of this distribution.
+// No part of 'devGpioGeneric', including this file, may be copied, modified, propagated,
+// or otherwise distributed except according to the terms contained in the LICENSE file.
+//
+// SPDX-License-Identifier: BSD-3-Clause
+//-----------------------------------------------------------------------------------------
 
 #pragma once
 
@@ -7,6 +19,9 @@
 
 #define MAX_MACRO_NAME_LEN 128
 
+#ifdef __cplusplus
+namespace macro {
+#endif
 
 /**
  * Expands a string with macros in it.
@@ -93,3 +108,7 @@ expand_macro_string_env(const char* str)
 {
   return expand_macro_string(str, strtools__getenv);
 }
+
+#ifdef __cplusplus
+} // namespace macro
+#endif
