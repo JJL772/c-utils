@@ -60,7 +60,7 @@ expand_macro_string(const char* str, const char*(*resolveMacro)(const char*))
         goto append_single;
       }
 
-      const char* e = getenv(macroName);
+      const char* e = resolveMacro(macroName);
       if (!e)
         e = "";
 
