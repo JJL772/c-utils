@@ -8,7 +8,7 @@
 // No part of 'c-utils', including this file, may be copied, modified, propagated,
 // or otherwise distributed except according to the terms contained in the LICENSE file.
 //
-// SPDX-License-Identifier: BSD-3-Clause
+// SPDX-License-Identifier: MIT
 //-----------------------------------------------------------------------------------------
 #pragma once
 
