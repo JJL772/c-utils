@@ -26,7 +26,7 @@ globish(const char* pattern, const char* str)
   const char* s = str;
   
   /* special cases that should always match */
-  if (!strcmp(pattern, "*") || !strcmp(pattern, "*.*"))
+  if (!strcmp(pattern, "*"))
     return 1;
   
   while (*p && *s) {

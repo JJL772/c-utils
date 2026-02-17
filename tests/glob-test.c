@@ -29,4 +29,7 @@ main()
   TEST("*.hl?", "mysave.HL3", 1);
   TEST("*.hl?", "mysave.HL", 0);
   TEST("*.HL?", "mysave.SAV", 0);
+  TEST("*.*", "mysave.SAV", 1);
+  TEST("*.*", "mysave", 0);
+  TEST("*.*", "test.", 0);
 }
