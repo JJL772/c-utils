@@ -14,21 +14,29 @@
 
 #include <string.h>
 #include <ctype.h>
+#include <stdio.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+/**
+ * @brief Basic, mostly-compliant, glob implementation
+ * @param pattern Glob pattern to match with
+ * @param str Pattern to match with
+ * @returns 1 for match, 0 otherwise
+ */
 static inline int
 globish(const char* pattern, const char* str)
 {
   const char* p = pattern;
   const char* s = str;
-  
+
   /* special cases that should always match */
   if (*pattern == '*' && !pattern[1])
     return 1;
-  
+
+  const char* rewind = NULL;
   while (*p && *s) {
     switch (*p) {
     case '*':
@@ -36,6 +44,9 @@ globish(const char* pattern, const char* str)
        * if it's a hit, advance the pattern past the wildcard and repeat the
        * compare. */
       if (toupper(*(p+1)) == toupper(*s)) {
+        /* if the coming match fails, rewind to this position in the pattern
+         * and try again. */
+        rewind = p;
         ++p;
         break;
       }
@@ -47,16 +58,25 @@ globish(const char* pattern, const char* str)
       ++p, ++s;
       break;
     default:  /* normal char compare */
-      if (toupper(*p) != toupper(*s))
+      if (toupper(*p) != toupper(*s)) {
+        /* if we have no match and a rewind pos set, go back to it and continue
+         * matching against the wildcard */
+        if (rewind) {
+          p = rewind;
+          rewind = NULL;
+          continue;
+        }
         return 0;
+      }
       ++p, ++s;
       break;
     }
   }
   
-  /* if any chars remain in the pattern, it wasn't a match */
-  if (*p)
+  /* if any chars besides wildcard remain in the pattern, it wasn't a match */
+  if (*p && *p != '*') {
     return 0;
+  }
 
   return 1;
 }
