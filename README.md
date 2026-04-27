@@ -15,3 +15,7 @@ Functions related to path manipulation, such as normalizing path separators, exp
 ## cfgparser.h
 
 A minimal cfg file parser. The file format is similar to INI, except that it uses `#` for comments instead of `;`
+
+## glob.h
+
+Simple glob-like function for matching wildcards against arbitrary strings.
