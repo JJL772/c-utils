@@ -1,7 +1,7 @@
 
 CFLAGS+=-g2
 
-all: bin/cfg-test bin/macro-test bin/glob-test
+all: bin/cfg-test bin/macro-test bin/glob-test bin/adl-test
 
 bin/macro-test: tests/macro-test.c macro-tools.h
 	mkdir -p bin
@@ -14,6 +14,10 @@ bin/cfg-test: tests/cfg-test.c cfgparser.h
 bin/glob-test: tests/glob-test.c glob.h
 	mkdir -p bin
 	gcc $(CFLAGS) -o $@ $<
+
+bin/adl-test: tests/adl-test.cc adlparser.hxx
+	mkdir -p bin
+	g++ $(CFLAGS) -o $@ $<
 
 clean:
 	rm -rf bin

@@ -1,3 +1,7 @@
-[*.{c,h}]
+[*.{c,h,hxx,cxx,cc}]
 indent_size = 2
+indent_style = space
+
+[*.{hxx,cxx,cc}]
+indent_size = 4
 indent_style = space
